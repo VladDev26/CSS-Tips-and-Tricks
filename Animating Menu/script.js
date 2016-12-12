@@ -1,5 +1,29 @@
-$(document).ready(function(){
-    $("#burger-container").on('click', function(){
-        $(this).toggleClass("open");
-    });
-});
+function docReady(fn) {
+	if (document.readyState != 'loading'){
+		fn();
+	} else {
+		document.addEventListener('DOMContentLoaded', fn);
+	}
+}
+function toggleClassName(el, className){
+	if (el.classList) {
+		el.classList.toggle(className);
+	} else {
+		var classes = el.className.split(' ');
+		var existingIndex = classes.indexOf(className);
+
+		if (existingIndex >= 0)
+			classes.splice(existingIndex, 1);
+		else
+			classes.push(className);
+			el.className = classes.join(' ');
+	}
+}
+
+function animateBurger(){
+	document.getElementById('burger-container').addEventListener('click', function(){
+		toggleClassName(this, 'open');
+	});
+}
+
+docReady(animateBurger);

@@ -31,11 +31,13 @@ body{
 }
 
 #burger-container.open span:nth-child(4){
+    -ms-transform: rotate(45deg);
     transform: rotate(45deg);
     top: -36px;
 }
 
 #burger-container.open span:nth-child(1){
+    -ms-transform: rotate(-45deg);
     transform: rotate(-45deg);
     top: 36px;
 }
